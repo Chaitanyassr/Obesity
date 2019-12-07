@@ -1,0 +1,1702 @@
+[gd_scene load_steps=69 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://player/frame-1.png" type="Texture" id=3]
+[ext_resource path="res://player/frame-2.png" type="Texture" id=4]
+[ext_resource path="res://player/frame-3.png" type="Texture" id=5]
+[ext_resource path="res://player/frame-4.png" type="Texture" id=6]
+[ext_resource path="res://player/frame-5.png" type="Texture" id=7]
+[ext_resource path="res://player/frame-6.png" type="Texture" id=8]
+[ext_resource path="res://player/frame-7.png" type="Texture" id=9]
+[ext_resource path="res://player/frame-8.png" type="Texture" id=10]
+[ext_resource path="res://ScreenShake.gd" type="Script" id=11]
+[ext_resource path="res://Background/7.png" type="Texture" id=12]
+[ext_resource path="res://Background/6.png" type="Texture" id=13]
+[ext_resource path="res://Background/5.png" type="Texture" id=14]
+[ext_resource path="res://Background/2.png" type="Texture" id=15]
+[ext_resource path="res://blood.png" type="Texture" id=16]
+[ext_resource path="res://Background/1.png" type="Texture" id=17]
+[ext_resource path="res://Background/cloud1.PNG" type="Texture" id=18]
+[ext_resource path="res://Background/cloud2.PNG" type="Texture" id=19]
+[ext_resource path="res://Background/cloud3.PNG" type="Texture" id=20]
+[ext_resource path="res://stardate_81316.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://logo/lineDark21.png" type="Texture" id=22]
+[ext_resource path="res://logo/lineDark00.png" type="Texture" id=23]
+[ext_resource path="res://logo/lineDark01.png" type="Texture" id=24]
+[ext_resource path="res://lineDark37.png" type="Texture" id=25]
+[ext_resource path="res://heart/heart.png" type="Texture" id=26]
+[ext_resource path="res://floatingisland.gd" type="Script" id=27]
+[ext_resource path="res://island/cake (1).png" type="Texture" id=28]
+[ext_resource path="res://island/cake (2).png" type="Texture" id=29]
+[ext_resource path="res://island/cake (4).png" type="Texture" id=30]
+[ext_resource path="res://KinematicBody2D8.gd" type="Script" id=31]
+[ext_resource path="res://KinematicBody2D2.gd" type="Script" id=32]
+[ext_resource path="res://island/cake (5).png" type="Texture" id=33]
+[ext_resource path="res://island/cake (6).png" type="Texture" id=34]
+[ext_resource path="res://island/cake (7).png" type="Texture" id=35]
+[ext_resource path="res://KinematicBody2D5.gd" type="Script" id=36]
+[ext_resource path="res://island/cake (8).png" type="Texture" id=37]
+[ext_resource path="res://KinematicBody2D6.gd" type="Script" id=38]
+[ext_resource path="res://island/cake (9).png" type="Texture" id=39]
+[ext_resource path="res://floating horns/thorns2.png" type="Texture" id=40]
+[ext_resource path="res://floating8.gd" type="Script" id=41]
+[ext_resource path="res://floating12.gd" type="Script" id=42]
+[ext_resource path="res://logo/lineDark09.png" type="Texture" id=43]
+[ext_resource path="res://logo/lineDark11.png" type="Texture" id=44]
+[ext_resource path="res://logo/lineDark30.png" type="Texture" id=45]
+[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=46]
+[ext_resource path="res://blue egg.gd" type="Script" id=47]
+[ext_resource path="res://eggs/egg1.png" type="Texture" id=48]
+[ext_resource path="res://redegg.gd" type="Script" id=49]
+[ext_resource path="res://eggs/cake (1).png" type="Texture" id=50]
+[ext_resource path="res://Explosion20.ogg" type="AudioStream" id=51]
+[ext_resource path="res://Jump4.ogg" type="AudioStream" id=52]
+[ext_resource path="res://disco.ogg" type="AudioStream" id=53]
+[ext_resource path="res://Pickup_Coin18.ogg" type="AudioStream" id=54]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0801
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "fly2",
+"speed": 50.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "fly",
+"speed": 5.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 28.13
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 125.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="ConcavePolygonShape2D" id=4]
+custom_solver_bias = 0.327
+segments = PoolVector2Array( 10, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 112.981
+height = 106.752
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 71.2548, 6343.42 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 21 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 112.371, 22.2505 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 75.3583, 14.848 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 658.221, 5558.16 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 741.974, 329.136 )
+
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 26.9607
+height = 3.9874
+
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 21.7112
+height = 6.48428
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 73.8196, 436.766 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="player"]
+position = Vector2( 65.6177, 437.792 )
+scale = Vector2( 0.0843912, 0.101364 )
+z_index = 3
+frames = SubResource( 2 )
+animation = "fly2"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( 1070.42, 244.016 )
+rotating = true
+current = true
+process_mode = 0
+limit_left = 0
+limit_right = 1100
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+
+[node name="ScreenShake" type="Node" parent="player/Camera2D"]
+script = ExtResource( 11 )
+
+[node name="ShakeTween" type="Tween" parent="player/Camera2D/ScreenShake"]
+
+[node name="Timer" type="Timer" parent="player/Camera2D/ScreenShake"]
+
+[node name="Duration" type="Timer" parent="player/Camera2D/ScreenShake"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="player"]
+
+[node name="7" type="Sprite" parent="player/ParallaxBackground"]
+position = Vector2( 567.882, 252.348 )
+scale = Vector2( 0.663546, 0.728118 )
+z_index = -11
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="player/ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 1, 2 )
+
+[node name="6" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 543.155, 456.345 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="12" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 543.155, 456.345 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="7" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 546.246, -174.192 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="8" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 286.613, -582.187 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="9" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 685.335, -718.185 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="10" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 487.52, -1135.45 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="11" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 700.217, -1784.36 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="13" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 384.948, -2677.62 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="14" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 641.49, -3283.43 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="15" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 369.494, -4343.6 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="16" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 746.58, -4949.41 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="17" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 369.494, -5490.31 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="18" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 715.671, -5638.68 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="19" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 366.403, -6055.94 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="20" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 629.127, -6519.57 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="21" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 205.678, -6893.57 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="22" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 632.218, -7177.93 )
+scale = Vector2( 0.560517, 0.585022 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="player/ParallaxBackground"]
+motion_scale = Vector2( 1, 3 )
+
+[node name="5" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 565.318, 511.652 )
+scale = Vector2( 0.618279, 1.19978 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="player/ParallaxBackground"]
+
+[node name="2" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 581.539, 142.861 )
+scale = Vector2( 0.546615, 1 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fly" type="Timer" parent="player"]
+wait_time = 4.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="player"]
+visible = false
+color = Color( 0.717647, 0.0509804, 0.0941176, 1 )
+
+[node name="redshock" type="Timer" parent="player"]
+wait_time = 0.5
+
+[node name="Particles2D" type="Particles2D" parent="player"]
+visible = false
+position = Vector2( 33.7582, 449.07 )
+z_index = 3
+amount = 4
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1" type="Sprite" parent="Background"]
+position = Vector2( 587.542, 152.725 )
+scale = Vector2( 0.538203, 0.823425 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/1"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Background/1/StaticBody2D"]
+position = Vector2( -914.357, 438.287 )
+scale = Vector2( 100, 1 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/1/StaticBody2D"]
+position = Vector2( -129.147, 602.644 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/1/StaticBody2D"]
+polygon = PoolVector2Array( -1226.46, 447.128, -916.508, 437.167, -916.508, 437.167, -237.562, 499.424, 68.7018, 457.089, 566.841, 454.599, 766.097, 449.618, 965.353, 442.148, 1264.24, 758.411, 611.12, 1072.18, -643.454, 1149.38, -1311.33, 1012.42, -1351.92, 623.937 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -7.24006, -745.779 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1164.77, -761.33 )
+shape = SubResource( 6 )
+
+[node name="sprite" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cloud1" type="Sprite" parent="sprite"]
+position = Vector2( 174.209, -453.407 )
+z_index = -1
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cloud2" type="Sprite" parent="sprite/cloud1"]
+position = Vector2( 956.284, 15.1791 )
+z_index = -1
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cloud2" type="Sprite" parent="sprite"]
+position = Vector2( 765.153, -2654.01 )
+z_index = -7
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cloud2" type="Sprite" parent="sprite/cloud2"]
+position = Vector2( -364.572, -1257.66 )
+z_index = -7
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cloud3" type="Sprite" parent="sprite/cloud2"]
+position = Vector2( 72.1741, -1785.08 )
+z_index = -5
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="scorecard" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="scorecard"]
+
+[node name="Control" type="Control" parent="scorecard/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="scorecard/CanvasLayer/Control"]
+margin_left = 123.0
+margin_right = 157.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.101961, 0.109804, 0.470588, 1 )
+text = "0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label2" type="Label" parent="scorecard/CanvasLayer/Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.105882, 0.145098, 0.376471, 1 )
+text = "SCORE - "
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="scorecard/CanvasLayer"]
+position = Vector2( 887.49, 494.203 )
+normal = ExtResource( 22 )
+pressed = ExtResource( 22 )
+action = "ui_up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="scorecard/CanvasLayer"]
+position = Vector2( 98.3482, 500.584 )
+normal = ExtResource( 23 )
+pressed = ExtResource( 23 )
+action = "ui_left"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="scorecard/CanvasLayer"]
+position = Vector2( 197.266, 502.108 )
+normal = ExtResource( 24 )
+pressed = ExtResource( 24 )
+action = "ui_right"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="scorecard/CanvasLayer"]
+position = Vector2( 493.075, 514.127 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 25 )
+action = "ui_accept"
+
+[node name="health" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="health"]
+
+[node name="Control" type="Control" parent="health/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="heart1" type="NinePatchRect" parent="health/CanvasLayer/Control"]
+margin_left = 554.094
+margin_top = 9.76721
+margin_right = 594.094
+margin_bottom = 49.7672
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="heart2" type="NinePatchRect" parent="health/CanvasLayer/Control"]
+margin_left = 507.419
+margin_top = 10.1003
+margin_right = 547.419
+margin_bottom = 50.1003
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="heart3" type="NinePatchRect" parent="health/CanvasLayer/Control"]
+margin_left = 465.041
+margin_top = 9.29947
+margin_right = 503.041
+margin_bottom = 49.2995
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="health"]
+
+[node name="floating_island" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -4.10107, -4.10107 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floatingisland" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( -203.568, 1015.99 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="floating_island/floatingisland"]
+position = Vector2( 656.035, -838.373 )
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/floatingisland"]
+position = Vector2( 1294.22, -47.934 )
+polygon = PoolVector2Array( -753, -811, -520, -810, -520, -810, -627, -770, -627, -770 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floatingisland2" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1172.74, 545.467 )
+motion/sync_to_physics = true
+script = ExtResource( 27 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/floatingisland2"]
+polygon = PoolVector2Array( -378.157, -655.53, -135.158, -655.53, -187.158, -587.53, -291.157, -584.53 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (2)" type="Sprite" parent="floating_island/floatingisland2"]
+position = Vector2( -254.875, -591.632 )
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floatingisland3" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 566.558, -560.739 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/floatingisland3"]
+polygon = PoolVector2Array( -378.157, -655.53, -135.158, -655.53, -187.158, -587.53, -291.157, -584.53 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (2)" type="Sprite" parent="floating_island/floatingisland3"]
+position = Vector2( -254.875, -591.632 )
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1217.34, -6478.37 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (4)" type="Sprite" parent="floating_island/KinematicBody2D"]
+position = Vector2( -683.426, 275.368 )
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D"]
+polygon = PoolVector2Array( -720.346, 148.786, -664.087, 136.479, -655.297, 141.754, -660.571, 162.851, -674.636, 224.384, -716.83, 224.384 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D8" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 856.767, -2071.69 )
+script = ExtResource( 31 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (4)" type="Sprite" parent="floating_island/KinematicBody2D8"]
+position = Vector2( -683.426, 275.368 )
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D8"]
+polygon = PoolVector2Array( -720.346, 148.786, -664.087, 136.479, -655.297, 141.754, -660.571, 162.851, -674.636, 224.384, -716.83, 224.384 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 787.932, -2434.44 )
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (5)" type="Sprite" parent="floating_island/KinematicBody2D2"]
+position = Vector2( -570.909, -113.169 )
+texture = ExtResource( 33 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D2"]
+polygon = PoolVector2Array( -692.217, -202.831, -614.861, -188.767, -562.118, -187.009, -509.376, -188.767, -449.601, -190.525, -479.488, -116.685, -572.667, -85.0396 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D3" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 635.134, -5049.32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (6)" type="Sprite" parent="floating_island/KinematicBody2D3"]
+position = Vector2( -386.31, 236.69 )
+texture = ExtResource( 34 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D3"]
+polygon = PoolVector2Array( -477.73, 159.334, -305.438, 161.092, -359.938, 280.642 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D4" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1626.83, -6618.76 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (7)" type="Sprite" parent="floating_island/KinematicBody2D4"]
+position = Vector2( -850.445, 50.333 )
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D4"]
+polygon = PoolVector2Array( -919.01, 20.4456, -778.363, 20.4456, -848.687, 59.1235 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D7" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1075.38, -527.417 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (7)" type="Sprite" parent="floating_island/KinematicBody2D7"]
+position = Vector2( -850.445, 50.333 )
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D7"]
+polygon = PoolVector2Array( -919.01, 20.4456, -778.363, 20.4456, -848.687, 59.1235 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D5" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1138.11, -4207.54 )
+script = ExtResource( 36 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (8)" type="Sprite" parent="floating_island/KinematicBody2D5"]
+position = Vector2( -658.813, 583.033 )
+texture = ExtResource( 37 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D5"]
+polygon = PoolVector2Array( -908.924, 564.085, -894.927, 537.259, -733.971, 532.594, -601.007, 531.428, -427.221, 527.929, -416.724, 529.095, -415.557, 548.923, -430.72, 534.927, -459.879, 564.085, -514.697, 589.745, -726.973, 589.745, -840.109, 565.252, -869.268, 571.083, -892.595, 547.756 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D6" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 1063.85, -4935.58 )
+script = ExtResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (9)" type="Sprite" parent="floating_island/KinematicBody2D6"]
+position = Vector2( -330.414, 426.456 )
+texture = ExtResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D6"]
+polygon = PoolVector2Array( -484.618, 376.421, -498.55, 379.738, -498.55, 379.738, -466.043, 381.064, -379.135, 424.187, -290.9, 456.031, -207.309, 411.582, -183.426, 402.294, -174.801, 408.265, -171.484, 404.948, -218.587, 390.352, -302.841, 377.084, -354.588, 371.777, -406.335, 371.777, -464.052, 372.44 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KinematicBody2D9" type="KinematicBody2D" parent="floating_island"]
+position = Vector2( 925.982, -3532.74 )
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (9)" type="Sprite" parent="floating_island/KinematicBody2D9"]
+position = Vector2( -330.414, 426.456 )
+texture = ExtResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floating_island/KinematicBody2D9"]
+polygon = PoolVector2Array( -484.618, 376.421, -498.55, 379.738, -498.55, 379.738, -466.043, 381.064, -379.135, 424.187, -290.9, 456.031, -207.309, 411.582, -183.426, 402.294, -174.801, 408.265, -171.484, 404.948, -218.587, 390.352, -302.841, 377.084, -354.588, 371.777, -406.335, 371.777, -464.052, 372.44 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="throns" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2.05054, 2.05054 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating" type="KinematicBody2D" parent="throns"]
+position = Vector2( 888.296, -973.425 )
+script = ExtResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="throns/floating"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating2" type="KinematicBody2D" parent="throns"]
+position = Vector2( 884.872, -1514.54 )
+script = ExtResource( 27 )
+
+[node name="Area2D" type="Area2D" parent="throns/floating2"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating2/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating2"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating2"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating3" type="KinematicBody2D" parent="throns"]
+position = Vector2( 1111.63, -2213.78 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating3"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating3/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating3"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating3"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating6" type="KinematicBody2D" parent="throns"]
+position = Vector2( 865.834, -2361.26 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating6"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating6/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating6"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating6"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating4" type="KinematicBody2D" parent="throns"]
+position = Vector2( 928.37, -3381.12 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating4"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating4/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating4"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating4"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating7" type="KinematicBody2D" parent="throns"]
+position = Vector2( 1452.59, -3987.25 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating7"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating7/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating7"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating7"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating8" type="KinematicBody2D" parent="throns"]
+position = Vector2( 911.988, -4159.26 )
+script = ExtResource( 41 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating8"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating8/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating8"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating8"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating10" type="KinematicBody2D" parent="throns"]
+position = Vector2( 1081.36, -5186.06 )
+script = ExtResource( 42 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating10"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating10/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating10"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating10"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating11" type="KinematicBody2D" parent="throns"]
+position = Vector2( 903.074, -5553.77 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating11"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating11/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating11"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating11"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating12" type="KinematicBody2D" parent="throns"]
+position = Vector2( 1515.92, -5954.9 )
+script = ExtResource( 42 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating12"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating12/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating12"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating12"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating9" type="KinematicBody2D" parent="throns"]
+position = Vector2( 1370.68, -4372.22 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating9"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating9/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating9"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating9"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floating5" type="KinematicBody2D" parent="throns"]
+position = Vector2( 947.209, -2884.19 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="throns/floating5"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating5/Area2D"]
+position = Vector2( -656.969, 53.6679 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throns/floating5"]
+position = Vector2( -666.222, 49.9667 )
+shape = SubResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="thorns2" type="Sprite" parent="throns/floating5"]
+position = Vector2( -658.412, 52.6994 )
+scale = Vector2( 0.472789, 0.249471 )
+texture = ExtResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="paused" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="paused"]
+
+[node name="Button" type="Button" parent="paused/CanvasLayer"]
+modulate = Color( 0.901961, 0.862745, 0.862745, 0.584314 )
+margin_left = 955.64
+margin_top = 18.7328
+margin_right = 1015.64
+margin_bottom = 72.7328
+icon = ExtResource( 43 )
+
+[node name="Button2" type="Button" parent="paused/CanvasLayer"]
+pause_mode = 2
+visible = false
+modulate = Color( 1, 1, 1, 0.52549 )
+margin_left = 955.344
+margin_top = 80.1688
+margin_right = 1015.34
+margin_bottom = 134.169
+icon = ExtResource( 44 )
+
+[node name="Button3" type="Button" parent="paused/CanvasLayer"]
+pause_mode = 2
+visible = false
+self_modulate = Color( 1, 1, 1, 0.54902 )
+margin_left = 955.344
+margin_top = 143.636
+margin_right = 1015.34
+margin_bottom = 197.636
+icon = ExtResource( 45 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="paused"]
+visible = false
+modulate = Color( 0.0784314, 0.0705882, 0.101961, 1 )
+color = Color( 0.427451, 0.403922, 0.403922, 1 )
+
+[node name="dialouge" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="dialouge"]
+
+[node name="NinePatchRect" parent="dialouge/CanvasLayer" instance=ExtResource( 46 )]
+visible = false
+margin_left = 210.0
+margin_top = 232.0
+margin_right = 995.0
+margin_bottom = 425.0
+language = "res://intro.lan"
+beep_WAV = null
+font_size = 31
+dialog_frame_height = 2
+
+[node name="dial" type="Area2D" parent="dialouge"]
+position = Vector2( 210, 232 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialouge/dial"]
+position = Vector2( 371.374, -2138.75 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 609.916, -7236.89 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="collectables" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="blue egg" type="Area2D" parent="collectables"]
+script = ExtResource( 47 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/blue egg"]
+position = Vector2( 947.983, -152.431 )
+shape = SubResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="egg1" type="Sprite" parent="collectables/blue egg"]
+position = Vector2( 946.014, -145.857 )
+scale = Vector2( 0.0874148, 0.0854907 )
+texture = ExtResource( 48 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg" type="Area2D" parent="collectables"]
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg2" type="Area2D" parent="collectables"]
+position = Vector2( 77.9208, -1000.67 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg2"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg2"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg3" type="Area2D" parent="collectables"]
+position = Vector2( -594.658, -1769.62 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg3"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg3"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg4" type="Area2D" parent="collectables"]
+position = Vector2( -129.184, -2097.71 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg4"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg4"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg5" type="Area2D" parent="collectables"]
+position = Vector2( -477.777, -2901.52 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg5"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg5"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg6" type="Area2D" parent="collectables"]
+position = Vector2( -30.7582, -3567.95 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg6"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg6"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg7" type="Area2D" parent="collectables"]
+position = Vector2( -30.7582, -3567.95 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg7"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg7"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg8" type="Area2D" parent="collectables"]
+position = Vector2( -621.315, -3941.15 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg8"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg8"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg9" type="Area2D" parent="collectables"]
+position = Vector2( -549.546, -4215.92 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg9"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg9"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg10" type="Area2D" parent="collectables"]
+position = Vector2( -740.247, -4892.6 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg10"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg10"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg11" type="Area2D" parent="collectables"]
+position = Vector2( -674.63, -5431.9 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg11"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg11"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg12" type="Area2D" parent="collectables"]
+position = Vector2( -734.096, -5776.39 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg12"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg12"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="redegg13" type="Area2D" parent="collectables"]
+position = Vector2( -28.7078, -6588.4 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectables/redegg13"]
+position = Vector2( 917.989, 477.521 )
+shape = SubResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cake (1)" type="Sprite" parent="collectables/redegg13"]
+position = Vector2( 921.612, 475.178 )
+scale = Vector2( 0.0888971, 0.0855473 )
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sounds" type="Node2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="death" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource( 51 )
+max_distance = 1.70485e+009
+
+[node name="death2" type="Timer" parent="sounds"]
+wait_time = 0.4
+
+[node name="jump" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource( 52 )
+max_distance = 1.42551e+009
+
+[node name="jump2" type="Timer" parent="sounds"]
+wait_time = 0.25
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource( 53 )
+autoplay = true
+max_distance = 1.86477e+008
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource( 54 )
+
+[node name="pickupsound" type="Timer" parent="sounds"]
+wait_time = 0.2
+[connection signal="timeout" from="player/Camera2D/ScreenShake/Timer" to="player/Camera2D/ScreenShake" method="_on_Timer_timeout"]
+[connection signal="timeout" from="player/Camera2D/ScreenShake/Duration" to="player/Camera2D/ScreenShake" method="_on_Duration_timeout"]
+[connection signal="timeout" from="player/fly" to="player" method="_on_fly_timeout"]
+[connection signal="timeout" from="player/redshock" to="player" method="_on_redshock_timeout"]
+[connection signal="timeout" from="health/Timer" to="player" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="throns/floating/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating2/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating3/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating6/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating4/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating7/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating8/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating10/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating11/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating12/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating9/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="throns/floating5/Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="pressed" from="paused/CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="paused/CanvasLayer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="paused/CanvasLayer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="body_entered" from="dialouge/dial" to="player" method="_on_dial_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="collectables/blue egg" to="player" method="_on_blue_egg_body_entered"]
+[connection signal="body_entered" from="collectables/blue egg" to="collectables/blue egg" method="_on_blue_egg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg" to="collectables/redegg" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg2" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg2" to="collectables/redegg2" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg3" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg3" to="collectables/redegg3" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg4" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg4" to="collectables/redegg4" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg5" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg5" to="collectables/redegg5" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg6" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg6" to="collectables/redegg6" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg7" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg7" to="collectables/redegg7" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg8" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg8" to="collectables/redegg8" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg9" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg9" to="collectables/redegg9" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg10" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg10" to="collectables/redegg10" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg11" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg11" to="collectables/redegg11" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg12" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg12" to="collectables/redegg12" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg13" to="player" method="_on_redegg_body_entered"]
+[connection signal="body_entered" from="collectables/redegg13" to="collectables/redegg13" method="_on_redegg_body_entered"]
+[connection signal="timeout" from="sounds/death2" to="player" method="_on_death2_timeout"]
+[connection signal="timeout" from="sounds/jump2" to="player" method="_on_jump2_timeout"]
+[connection signal="timeout" from="sounds/pickupsound" to="player" method="_on_pickupsound_timeout"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://youwon.gd" type="Script" id=1]
+[ext_resource path="res://Background/background.png" type="Texture" id=2]
+[ext_resource path="res://logo/back (1).png" type="Texture" id=3]
+[ext_resource path="res://logo/back (2).png" type="Texture" id=4]
+[ext_resource path="res://logo/back (3).png" type="Texture" id=5]
+[ext_resource path="res://logo/back (4).png" type="Texture" id=6]
+[ext_resource path="res://logo/back (5).png" type="Texture" id=7]
+[ext_resource path="res://logo/back (6).png" type="Texture" id=8]
+[ext_resource path="res://logo/frame-1.png" type="Texture" id=9]
+[ext_resource path="res://logo/frame-2.png" type="Texture" id=10]
+[ext_resource path="res://logo/won (1).png" type="Texture" id=11]
+[ext_resource path="res://logo/won (2).png" type="Texture" id=12]
+[ext_resource path="res://logo/won (3).png" type="Texture" id=13]
+[ext_resource path="res://logo/won (4).png" type="Texture" id=14]
+[ext_resource path="res://logo/won (5).png" type="Texture" id=15]
+[ext_resource path="res://logo/won (6).png" type="Texture" id=16]
+[ext_resource path="res://Fartycrrok.ogg" type="AudioStream" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="youwon" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="background" type="Sprite" parent="."]
+modulate = Color( 0.529412, 0.392157, 0.392157, 1 )
+position = Vector2( 523.415, 302.79 )
+scale = Vector2( 0.598595, 0.659921 )
+z_index = -1
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 510.886, 208.19 )
+scale = Vector2( 0.661493, 1 )
+frames = SubResource( 1 )
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.180392 )
+margin_right = 1031.0
+margin_bottom = 594.0
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 130.217, 347.216 )
+scale = Vector2( 0.204226, 0.300643 )
+frames = SubResource( 2 )
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+position = Vector2( 521.129, 427.981 )
+scale = Vector2( 0.842824, 1 )
+z_index = -1
+frames = SubResource( 3 )
+frame = 1
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

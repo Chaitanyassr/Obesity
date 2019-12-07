@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fartycrrok.ogg-adbdfe36d7ceb6aa1095c9436789532b.oggstr"
+
+[deps]
+
+source_file="res://Fartycrrok.ogg"
+dest_files=[ "res://.import/Fartycrrok.ogg-adbdfe36d7ceb6aa1095c9436789532b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
