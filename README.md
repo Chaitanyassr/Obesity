@@ -1,7 +1,8 @@
 # Obesity
 An android game that is made to create awareness on obesity.
 
-[![site link](https://sites.google.com/view/braveknightgame/home)
+site link = https://sites.google.com/view/braveknightgame/home
+apk link = https://play.google.com/store/apps/details?id=com.chinuon.obesity
 
 screenshot - 
 
