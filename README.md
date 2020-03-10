@@ -5,7 +5,7 @@ game link -
 
 screenshot - 
 
-(https://github.com/Chaitanyassr/Obesity/blob/master/screenshots/Screenshot%20(100).png)
+<img src="https://github.com/Chaitanyassr/Obesity/blob/master/screenshots/Screenshot%20(100).png" >
 (https://github.com/Chaitanyassr/Obesity/blob/master/screenshots/Screenshot%20(101).png)
 (https://github.com/Chaitanyassr/Obesity/blob/master/screenshots/Screenshot%20(102).png)
 (https://github.com/Chaitanyassr/Obesity/blob/master/screenshots/Screenshot%20(103).png)
